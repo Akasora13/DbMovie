@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.detail.DetailActivity">
+
+    <ImageView
+        android:id="@+id/imgPoster"
+        android:layout_width="150dp"
+        android:layout_height="225dp"
+        android:layout_margin="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/poster_alita" />
+
+    <TextView
+        android:id="@+id/tv_item_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:ellipsize="end"
+        android:gravity="start"
+        android:maxLines="2"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imgPoster"
+        app:layout_constraintTop_toTopOf="@+id/imgPoster"
+        tools:text="@string/title" />
+
+    <TextView
+        android:id="@+id/tv_item_genre"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="start"
+        android:ellipsize="end"
+        android:textSize="16sp"
+        android:maxLines="2"
+        app:layout_constraintEnd_toEndOf="@+id/tv_item_title"
+        app:layout_constraintStart_toStartOf="@+id/tv_item_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_item_title"
+        tools:text="@string/genre"/>
+
+    <TextView
+        android:id="@+id/tv_item_year"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:gravity="start"
+        android:textSize="14sp"
+        android:maxLines="1"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/tv_item_genre"
+        app:layout_constraintStart_toStartOf="@+id/tv_item_genre"
+        app:layout_constraintTop_toBottomOf="@+id/tv_item_genre"
+        tools:text="@string/year" />
+
+    <TextView
+        android:id="@+id/tv_item_rating"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:gravity="start"
+        android:maxLines="1"
+        android:textSize="14sp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/tv_item_year"
+        app:layout_constraintStart_toStartOf="@+id/tv_item_year"
+        app:layout_constraintTop_toBottomOf="@+id/tv_item_year"
+        tools:text="@string/rating" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/description"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/imgPoster"
+        app:layout_constraintTop_toBottomOf="@+id/imgPoster" />
+
+    <TextView
+        android:id="@+id/tv_item_desc"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:gravity="start"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        tools:text="@string/description" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
