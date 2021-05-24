@@ -28,7 +28,6 @@ class MovieAdapter (private val context: Context) : RecyclerView.Adapter<MovieAd
             with(binding){
 
                 tvItemTitle.text =movie.title
-                tvItemGenre.text = movie.genre
                 tvItemYear.text = movie.year
 
                 Glide.with(itemView.context)

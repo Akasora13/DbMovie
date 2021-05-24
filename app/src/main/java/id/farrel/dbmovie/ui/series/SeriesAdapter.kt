@@ -42,7 +42,6 @@ class SeriesAdapter (private val context : Context) : RecyclerView.Adapter<Serie
         fun bind(series: SeriesEntity){
             with(binding){
                 tvItemTitle.text = series.title
-                tvItemGenre.text = series.genre
                 tvItemYear.text = series.year
 
                 Glide.with(itemView.context)
