@@ -13,7 +13,7 @@
         android:layout_margin="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:src="@drawable/poster_alita" />
+        android:background="@color/teal_200"/>
 
     <TextView
         android:id="@+id/tv_item_title"

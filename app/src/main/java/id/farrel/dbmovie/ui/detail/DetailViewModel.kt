@@ -1,12 +1,14 @@
 package id.farrel.dbmovie.ui.detail
 
 import android.widget.Toast
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import id.farrel.dbmovie.data.MovieEntity
+import id.farrel.dbmovie.data.Repository
 import id.farrel.dbmovie.data.SeriesEntity
 import id.farrel.dbmovie.utils.DataDummy
 
-class DetailViewModel : ViewModel() {
+class DetailViewModel(private val detailRepository: Repository) : ViewModel() {
 
     private lateinit var itemId : String
 
@@ -14,30 +16,8 @@ class DetailViewModel : ViewModel() {
         this.itemId = itemId
     }
 
-    fun getDetailMovie() : MovieEntity{
+    fun getDetailMovie(movieId: Int) : LiveData<MovieEntity> = detailRepository.getFilm(movieId)
 
-        lateinit var movie: MovieEntity
-
-        val movieEntities = DataDummy.generateDummyMovie()
-        for (movieEntity in movieEntities){
-            if (movieEntity.id == itemId){
-                movie = movieEntity
-            }
-        }
-        return movie
-    }
-
-    fun getDetailSeries() : SeriesEntity{
-
-        lateinit var series: SeriesEntity
-
-        val seriesEntities = DataDummy.generateDummySeries()
-        for (seriesEntity in seriesEntities){
-            if (seriesEntity.id == itemId){
-                series = seriesEntity
-            }
-        }
-        return series
-    }
+    fun getDetailSeries(tvId: Int) : LiveData<SeriesEntity> = detailRepository.getTv(tvId)
 
 }

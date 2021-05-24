@@ -1,15 +1,17 @@
 package id.farrel.dbmovie.ui.movie
 
+import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import id.farrel.dbmovie.BuildConfig.IMAGE_URL
 import id.farrel.dbmovie.data.MovieEntity
 import id.farrel.dbmovie.databinding.ListMovieBinding
 import id.farrel.dbmovie.ui.detail.DetailActivity
 
-class MovieAdapter : RecyclerView.Adapter<MovieAdapter.ViewHolder>()  {
+class MovieAdapter (private val context: Context) : RecyclerView.Adapter<MovieAdapter.ViewHolder>()  {
 
     private var listMovie = ArrayList<MovieEntity>()
 
@@ -17,18 +19,20 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.ViewHolder>()  {
         if (movie == null) return
         this.listMovie.clear()
         this.listMovie.addAll(movie)
+        notifyDataSetChanged()
     }
 
     inner class ViewHolder (private val binding: ListMovieBinding) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(movie: MovieEntity){
             with(binding){
+
                 tvItemTitle.text =movie.title
                 tvItemGenre.text = movie.genre
                 tvItemYear.text = movie.year
 
                 Glide.with(itemView.context)
-                    .load(movie.img)
+                    .load("$IMAGE_URL${movie.img}")
                     .into(binding.imgPoster)
 
                 itemView.setOnClickListener{

@@ -3,11 +3,13 @@
     <string name="database">DB</string>
     <string name="movie">Movie</string>
     <string name="series">Series</string>
-    <!-- TODO: Remove or change this placeholder text -->
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title">Title</string>
     <string name="genre">Genre</string>
     <string name="year">Year</string>
     <string name="rating">Rating</string>
     <string name="description">Description</string>
+
+
 </resources>
