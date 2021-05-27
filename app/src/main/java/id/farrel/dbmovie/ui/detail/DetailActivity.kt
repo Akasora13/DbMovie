@@ -1,11 +1,10 @@
 package id.farrel.dbmovie.ui.detail
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
-import id.farrel.dbmovie.BuildConfig
 import id.farrel.dbmovie.BuildConfig.IMAGE_URL
 import id.farrel.dbmovie.data.MovieEntity
 import id.farrel.dbmovie.data.SeriesEntity
@@ -27,25 +26,25 @@ class DetailActivity : AppCompatActivity() {
         val viewModel = ViewModelProvider(this, factory)[DetailViewModel::class.java]
 
         flag = intent.getStringExtra("FLAG")!!
-        if (flag == "0"){
+        if (flag == "0") {
             idData = intent.getStringExtra("ID_M")!!
             viewModel.getDetailMovie(idData.toInt()).observe(this, {
                 populateViewMovie(it)
             })
-        }else if (flag == "1"){
+        } else if (flag == "1") {
             idData = intent.getStringExtra("ID_S")!!
-            viewModel.getDetailSeries(idData.toInt()).observe(this,{
+            viewModel.getDetailSeries(idData.toInt()).observe(this, {
                 populateViewSeries(it)
             })
 
-        }else {
+        } else {
             Toast.makeText(this, "Data is Missing", Toast.LENGTH_SHORT).show()
         }
 
     }
 
-    fun populateViewMovie(movie: MovieEntity){
-        with(binding){
+    fun populateViewMovie(movie: MovieEntity) {
+        with(binding) {
             tvItemTitle.text = movie.title
             tvItemGenre.text = movie.genre
             tvItemYear.text = movie.year
@@ -58,8 +57,8 @@ class DetailActivity : AppCompatActivity() {
         }
     }
 
-    fun populateViewSeries(series: SeriesEntity){
-        with(binding){
+    fun populateViewSeries(series: SeriesEntity) {
+        with(binding) {
             tvItemTitle.text = series.title
             tvItemGenre.text = series.genre
             tvItemYear.text = series.year

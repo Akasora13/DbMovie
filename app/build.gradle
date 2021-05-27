@@ -22,7 +22,7 @@ android {
         buildConfigField "String", 'IMAGE_URL', "\"https://image.tmdb.org/t/p/w500\""
     }
 
-    buildFeatures{
+    buildFeatures {
         viewBinding true
     }
 
@@ -80,4 +80,8 @@ dependencies {
     testImplementation "androidx.arch.core:core-testing:$androidCoreTestVersion"
     testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:$mockitoKotlinVersion"
     implementation "androidx.test.espresso:espresso-idling-resource:$idleResourceVersion"
+
+    implementation "androidx.room:room-runtime:$roomRuntimeVersion"
+    kapt "androidx.room:room-compiler:$roomVersion"
+    implementation "androidx.paging:paging-runtime:$pagingVersion"
 }

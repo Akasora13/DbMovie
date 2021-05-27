@@ -7,16 +7,16 @@ import id.farrel.dbmovie.data.MovieEntity
 import id.farrel.dbmovie.data.Repository
 import id.farrel.dbmovie.data.SeriesEntity
 import id.farrel.dbmovie.utils.DataDummy
-import org.junit.Test
-
-import org.junit.Assert.*
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertNotNull
 import org.junit.Before
 import org.junit.Rule
+import org.junit.Test
 import org.mockito.Mockito.*
 
 class DetailViewModelTest {
 
-    private lateinit var viewModel : DetailViewModel
+    private lateinit var viewModel: DetailViewModel
     private val dummyMovie = DataDummy.generateDummyMovie()[0]
     private val dummySeries = DataDummy.generateDummySeries()[0]
     private val idMovie = dummyMovie.id?.toInt()
@@ -30,7 +30,7 @@ class DetailViewModelTest {
     private var observer = mock(Observer::class.java)
 
     @Before
-    fun setUp(){
+    fun setUp() {
         viewModel = DetailViewModel(repository)
     }
 
@@ -53,7 +53,8 @@ class DetailViewModelTest {
         assertEquals(dummyMovie.desc, movieEntity.desc)
         assertEquals(dummyMovie.title, movieEntity.title)
 
-        viewModel.getDetailMovie(idMovie.toInt()).observeForever(observer as Observer<in MovieEntity>)
+        viewModel.getDetailMovie(idMovie.toInt())
+            .observeForever(observer as Observer<in MovieEntity>)
         verify(observer as Observer<in MovieEntity>).onChanged(dummyMovie)
     }
 
@@ -65,7 +66,8 @@ class DetailViewModelTest {
         if (idSeries != null) {
             `when`(repository.getTv(idSeries.toInt())).thenReturn(series)
         }
-        val seriesEntity = idSeries?.let { viewModel.getDetailSeries(it.toInt()).value } as SeriesEntity
+        val seriesEntity =
+            idSeries?.let { viewModel.getDetailSeries(it.toInt()).value } as SeriesEntity
         verify(repository).getTv(idSeries.toInt())
         assertNotNull(seriesEntity)
         assertEquals(dummySeries.id, seriesEntity.id)
@@ -76,7 +78,8 @@ class DetailViewModelTest {
         assertEquals(dummySeries.desc, seriesEntity.desc)
         assertEquals(dummySeries.title, seriesEntity.title)
 
-        viewModel.getDetailSeries(idSeries.toInt()).observeForever(observer as Observer<in SeriesEntity>)
+        viewModel.getDetailSeries(idSeries.toInt())
+            .observeForever(observer as Observer<in SeriesEntity>)
         verify(observer as Observer<in SeriesEntity>).onChanged(dummySeries)
     }
 }

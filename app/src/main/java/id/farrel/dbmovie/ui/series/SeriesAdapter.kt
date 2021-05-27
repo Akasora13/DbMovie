@@ -6,19 +6,17 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import id.farrel.dbmovie.BuildConfig
 import id.farrel.dbmovie.BuildConfig.IMAGE_URL
-import id.farrel.dbmovie.R
 import id.farrel.dbmovie.data.SeriesEntity
-import id.farrel.dbmovie.databinding.ListMovieBinding
 import id.farrel.dbmovie.databinding.ListSeriesBinding
 import id.farrel.dbmovie.ui.detail.DetailActivity
 
-class SeriesAdapter (private val context : Context) : RecyclerView.Adapter<SeriesAdapter.ViewHolder>() {
+class SeriesAdapter(private val context: Context) :
+    RecyclerView.Adapter<SeriesAdapter.ViewHolder>() {
 
     private var listSeries = ArrayList<SeriesEntity>()
 
-    fun setSeries(series: List<SeriesEntity>){
+    fun setSeries(series: List<SeriesEntity>) {
         if (series == null) return
         this.listSeries.clear()
         this.listSeries.addAll(series)
@@ -37,19 +35,21 @@ class SeriesAdapter (private val context : Context) : RecyclerView.Adapter<Serie
 
     override fun getItemCount(): Int = listSeries.size
 
-    inner class ViewHolder (private val binding: ListSeriesBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class ViewHolder(private val binding: ListSeriesBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(series: SeriesEntity){
-            with(binding){
+        fun bind(series: SeriesEntity) {
+            with(binding) {
                 tvItemTitle.text = series.title
+                tvItemGenre.text = series.genre
                 tvItemYear.text = series.year
 
                 Glide.with(itemView.context)
                     .load("${IMAGE_URL}${series.img}")
                     .into(binding.imgPoster)
 
-                itemView.setOnClickListener{
-                    val intent =Intent(itemView.context, DetailActivity::class.java)
+                itemView.setOnClickListener {
+                    val intent = Intent(itemView.context, DetailActivity::class.java)
                     intent.putExtra("ID_S", series.id)
                     intent.putExtra("FLAG", "1")
                     itemView.context.startActivity(intent)

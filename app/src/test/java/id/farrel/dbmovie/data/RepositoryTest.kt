@@ -1,16 +1,17 @@
 package id.farrel.dbmovie.data
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import com.nhaarman.mockitokotlin2.any
 import id.farrel.dbmovie.utils.DataDummy
 import id.farrel.dbmovie.utils.LiveDataTestUtil
-import com.nhaarman.mockitokotlin2.any
-import org.junit.Assert.*
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertNotNull
 import org.junit.Rule
 import org.junit.Test
 import org.mockito.ArgumentMatchers
 import org.mockito.Mockito.*
 
-class RepositoryTest{
+class RepositoryTest {
 
     @get:Rule
     var instantTaskExecutorRule = InstantTaskExecutorRule()
@@ -26,8 +27,8 @@ class RepositoryTest{
     private val seriesResponseDetail = DataDummy.generateSeriesSpecific()
 
     @Test
-    fun getAllFilm(){
-        doAnswer{
+    fun getAllFilm() {
+        doAnswer {
             (it.arguments[0] as RemoteDataSource.LoadFilmListCallback)
                 .onAllFilmReceived(movieResponse)
         }.`when`(remote).getFilmList(any())
@@ -39,8 +40,8 @@ class RepositoryTest{
     }
 
     @Test
-    fun getAllSeries(){
-        doAnswer{
+    fun getAllSeries() {
+        doAnswer {
             (it.arguments[0] as RemoteDataSource.LoadTvListCallback)
                 .onAllTvShowReceived(seriesResponse)
         }.`when`(remote).getTvList(any())
@@ -51,25 +52,25 @@ class RepositoryTest{
     }
 
     @Test
-    fun getMovieDetail(){
-        doAnswer{
+    fun getMovieDetail() {
+        doAnswer {
             (it.arguments[1] as RemoteDataSource.LoadFilmDetailCallback)
                 .onDetailMovieReceived(movieResponseDetail)
-        }.`when`(remote).getDetailFilm(ArgumentMatchers.eq(movieId?: 0), any())
-        val movieEntities = LiveDataTestUtil.getValue(repository.getFilm(movieId?:0))
-        verify(remote).getDetailFilm(ArgumentMatchers.eq(movieId?:0), any())
+        }.`when`(remote).getDetailFilm(ArgumentMatchers.eq(movieId ?: 0), any())
+        val movieEntities = LiveDataTestUtil.getValue(repository.getFilm(movieId ?: 0))
+        verify(remote).getDetailFilm(ArgumentMatchers.eq(movieId ?: 0), any())
         assertNotNull(movieEntities)
         assertEquals(movieId, movieEntities.id?.toInt())
     }
 
     @Test
-    fun getSeriesDetail(){
-        doAnswer{
+    fun getSeriesDetail() {
+        doAnswer {
             (it.arguments[1] as RemoteDataSource.LoadTvDetailCallback)
                 .onDetailTvShowReceived(seriesResponseDetail)
-        }.`when`(remote).getDetailTv(ArgumentMatchers.eq(seriesId?:0), any())
-        val seriesEntities = LiveDataTestUtil.getValue(repository.getTv(seriesId?:0))
-        verify(remote).getDetailTv(ArgumentMatchers.eq(seriesId?:0), any())
+        }.`when`(remote).getDetailTv(ArgumentMatchers.eq(seriesId ?: 0), any())
+        val seriesEntities = LiveDataTestUtil.getValue(repository.getTv(seriesId ?: 0))
+        verify(remote).getDetailTv(ArgumentMatchers.eq(seriesId ?: 0), any())
         assertNotNull(seriesEntities)
         assertEquals(seriesId, seriesEntities.id?.toInt())
     }

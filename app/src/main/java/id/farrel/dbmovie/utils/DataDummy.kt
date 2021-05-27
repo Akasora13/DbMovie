@@ -1,6 +1,5 @@
 package id.farrel.dbmovie.utils
 
-import id.farrel.dbmovie.R
 import id.farrel.dbmovie.data.MovieEntity
 import id.farrel.dbmovie.data.SeriesEntity
 import id.farrel.dbmovie.data.response.DataFilm
@@ -146,7 +145,7 @@ object DataDummy {
 
     }
 
-    fun generateRemoteMovie() : List<DataFilm> {
+    fun generateRemoteMovie(): List<DataFilm> {
         val movie = ArrayList<DataFilm>()
 
         movie.add(
@@ -207,7 +206,7 @@ object DataDummy {
         return movie
     }
 
-    fun generateMovieSpecific() : DataFilm = DataFilm(
+    fun generateMovieSpecific(): DataFilm = DataFilm(
         id = 1,
         title = "How to Train Your Dragon",
         year = "2010",
@@ -216,7 +215,7 @@ object DataDummy {
         desc = "As the son of a Viking leader on the cusp of manhood, shy Hiccup Horrendous Haddock III faces a rite of passage: he must kill a dragon to prove his warrior mettle. But after downing a feared dragon, he realizes that he no longer wants to destroy it, and instead befriends the beast – which he names Toothless – much to the chagrin of his warrior father."
     )
 
-    fun generateRemoteSeries() : List<DataTv> {
+    fun generateRemoteSeries(): List<DataTv> {
         val series = ArrayList<DataTv>()
 
         series.add(
@@ -279,7 +278,7 @@ object DataDummy {
         return series
     }
 
-    fun generateSeriesSpecific() : DataTv = DataTv(
+    fun generateSeriesSpecific(): DataTv = DataTv(
         11,
         "Dragon Ball",
         year = "1986",

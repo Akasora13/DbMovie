@@ -3,21 +3,19 @@ package id.farrel.dbmovie.ui.series
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
-import id.farrel.dbmovie.data.MovieEntity
 import id.farrel.dbmovie.data.Repository
 import id.farrel.dbmovie.data.SeriesEntity
 import id.farrel.dbmovie.utils.DataDummy
-import org.junit.Test
-
-import org.junit.Assert.*
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertNotNull
 import org.junit.Before
 import org.junit.Rule
-import org.mockito.Mock
+import org.junit.Test
 import org.mockito.Mockito.*
 
 class SeriesViewModelTest {
 
-    private lateinit var viewModel : SeriesViewModel
+    private lateinit var viewModel: SeriesViewModel
 
     @get:Rule
     var instantTaskExecutorRule = InstantTaskExecutorRule()
@@ -27,7 +25,7 @@ class SeriesViewModelTest {
     private var observer = mock(Observer::class.java)
 
     @Before
-    fun setUp(){
+    fun setUp() {
         viewModel = SeriesViewModel(repository)
     }
 

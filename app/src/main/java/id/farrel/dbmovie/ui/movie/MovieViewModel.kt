@@ -4,7 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import id.farrel.dbmovie.data.MovieEntity
 import id.farrel.dbmovie.data.Repository
-import id.farrel.dbmovie.utils.DataDummy
 
 class MovieViewModel(private val movieRepository: Repository) : ViewModel() {
 

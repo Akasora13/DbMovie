@@ -11,30 +11,32 @@ import id.farrel.dbmovie.data.MovieEntity
 import id.farrel.dbmovie.databinding.ListMovieBinding
 import id.farrel.dbmovie.ui.detail.DetailActivity
 
-class MovieAdapter (private val context: Context) : RecyclerView.Adapter<MovieAdapter.ViewHolder>()  {
+class MovieAdapter(private val context: Context) : RecyclerView.Adapter<MovieAdapter.ViewHolder>() {
 
     private var listMovie = ArrayList<MovieEntity>()
 
-    fun setMovie(movie: List<MovieEntity>?){
+    fun setMovie(movie: List<MovieEntity>?) {
         if (movie == null) return
         this.listMovie.clear()
         this.listMovie.addAll(movie)
         notifyDataSetChanged()
     }
 
-    inner class ViewHolder (private val binding: ListMovieBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class ViewHolder(private val binding: ListMovieBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(movie: MovieEntity){
-            with(binding){
+        fun bind(movie: MovieEntity) {
+            with(binding) {
 
-                tvItemTitle.text =movie.title
+                tvItemTitle.text = movie.title
+                tvItemGenre.text = movie.genre
                 tvItemYear.text = movie.year
 
                 Glide.with(itemView.context)
                     .load("$IMAGE_URL${movie.img}")
                     .into(binding.imgPoster)
 
-                itemView.setOnClickListener{
+                itemView.setOnClickListener {
                     val intent = Intent(itemView.context, DetailActivity::class.java)
                     intent.putExtra("ID_M", movie.id)
                     intent.putExtra("FLAG", "0")

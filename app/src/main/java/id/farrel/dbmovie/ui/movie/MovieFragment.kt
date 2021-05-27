@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.LinearLayoutManager
 import id.farrel.dbmovie.databinding.FragmentMovieBinding
 import id.farrel.dbmovie.utils.ViewModelFactory
 
@@ -26,7 +25,7 @@ class MovieFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        if (activity != null){
+        if (activity != null) {
             val factory = ViewModelFactory.getInstance()
             val viewModel = ViewModelProvider(this, factory)[MovieViewModel::class.java]
 

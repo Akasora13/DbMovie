@@ -9,7 +9,8 @@ import id.farrel.dbmovie.R
 import id.farrel.dbmovie.ui.movie.MovieFragment
 import id.farrel.dbmovie.ui.series.SeriesFragment
 
-class HomeSectionPagerAdapter (private val mContext : Context, fm: FragmentManager) : FragmentPagerAdapter (fm,  BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
+class HomeSectionPagerAdapter(private val mContext: Context, fm: FragmentManager) :
+    FragmentPagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
 
     companion object {
         @StringRes
@@ -25,6 +26,7 @@ class HomeSectionPagerAdapter (private val mContext : Context, fm: FragmentManag
             else -> Fragment()
         }
 
-    override fun getPageTitle(position: Int): CharSequence = mContext.resources.getString(TAB_TITLES[position])
+    override fun getPageTitle(position: Int): CharSequence =
+        mContext.resources.getString(TAB_TITLES[position])
 
 }

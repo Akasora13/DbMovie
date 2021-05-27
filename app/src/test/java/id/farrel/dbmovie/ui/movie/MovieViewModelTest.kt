@@ -6,17 +6,16 @@ import androidx.lifecycle.Observer
 import id.farrel.dbmovie.data.MovieEntity
 import id.farrel.dbmovie.data.Repository
 import id.farrel.dbmovie.utils.DataDummy
-import org.junit.Test
-
-import org.junit.Assert.*
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertNotNull
 import org.junit.Before
 import org.junit.Rule
-import org.mockito.Mock
+import org.junit.Test
 import org.mockito.Mockito.*
 
 class MovieViewModelTest {
 
-    private lateinit var viewModel : MovieViewModel
+    private lateinit var viewModel: MovieViewModel
 
     @get:Rule
     var instantTaskExecutorRule = InstantTaskExecutorRule()
@@ -29,7 +28,7 @@ class MovieViewModelTest {
     private lateinit var observer: Observer<List<MovieEntity>>*/
 
     @Before
-    fun setUp(){
+    fun setUp() {
         viewModel = MovieViewModel(repository)
     }
 

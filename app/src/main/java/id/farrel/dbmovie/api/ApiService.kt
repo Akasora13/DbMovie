@@ -17,9 +17,9 @@ interface ApiService {
     fun getTvList(@Query("api_key") api_key: String): Call<TvResponse>
 
     @GET("movie/{movie_id}")
-    fun getFilmDetail(@Path("movie_id") id : Int, @Query("api_key") api_key: String) : Call<DataFilm>
+    fun getFilmDetail(@Path("movie_id") id: Int, @Query("api_key") api_key: String): Call<DataFilm>
 
     @GET("tv/{tv_id}")
-    fun getTvDetail(@Path("tv_id") id : Int, @Query ("api_key") api_key: String) : Call<DataTv>
+    fun getTvDetail(@Path("tv_id") id: Int, @Query("api_key") api_key: String): Call<DataTv>
 
 }

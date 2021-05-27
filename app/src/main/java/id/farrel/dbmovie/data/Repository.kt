@@ -2,12 +2,9 @@ package id.farrel.dbmovie.data
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import id.farrel.dbmovie.data.RemoteDataSource.*
 import id.farrel.dbmovie.data.response.DataFilm
 import id.farrel.dbmovie.data.response.DataTv
-import id.farrel.dbmovie.data.RemoteDataSource.LoadFilmDetailCallback
-import id.farrel.dbmovie.data.RemoteDataSource.LoadFilmListCallback
-import id.farrel.dbmovie.data.RemoteDataSource.LoadTvDetailCallback
-import id.farrel.dbmovie.data.RemoteDataSource.LoadTvListCallback
 
 
 class Repository private constructor(private val remoteDataSource: RemoteDataSource) : DataSource {

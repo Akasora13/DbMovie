@@ -3,7 +3,7 @@ package id.farrel.dbmovie.data.response
 import com.google.gson.annotations.SerializedName
 
 data class TvResponse(
-    @field:SerializedName ("results") val result: List<DataTv>? = null
+    @field:SerializedName("results") val result: List<DataTv>? = null
 )
 
 data class DataTv(
